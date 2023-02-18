@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+int main(){
+std::string line;
+std::cout << "Введите строку: ";
+std::cin>>line;
+int count = 0;
+int max = 0;
+
+std::string maxLine = "", str = "";
+for(size_t i =0; i < line.size(); i++){
+    if(line[i] != ' '){
+        count++;
+        str = str + line[i];
+    }
+    else{
+        if (count > max){
+            max = count;
+            maxLine = str;
+        }
+        count = 0;
+        str = "";
+    }
+
+}
+if (count > max){
+    max = count;
+    maxLine = str;
+}
+std::cout << "Длина самого большого слова равна: "<< max << "\n";
+return 0;
+}
